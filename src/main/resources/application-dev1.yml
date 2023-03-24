@@ -1,0 +1,23 @@
+
+
+#spring:
+#  datasource:
+#    username: root
+#    password: lp309701
+#    #?serverTimezone=UTC解决时区的报错
+#    url: jdbc:mysql://localhost:3306/5_1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+
+spring:
+  datasource:
+    username: root
+    password: Pdy309701..
+
+    url: jdbc:mysql://39.106.249.239:3306/03_22?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useAffectedRows=true&allowMultiQueries=true
+  driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8082
+hibernate:
+  ddl-auto: update
