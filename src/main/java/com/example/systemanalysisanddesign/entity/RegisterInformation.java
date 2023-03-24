@@ -1,31 +1,17 @@
 package com.example.systemanalysisanddesign.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import lombok.*;
-import org.springframework.context.annotation.Primary;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
-import java.util.List;
-
-/**
- * @ClassName User
- * @Description 用户
- * @Author pengdengyun
- * @Updater
- * @Create 2022-05-06
- * @Update
- **/
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "user")
-public class User {
-
-    /**
-     * id（自动顺序生成）
-     */
+@Entity
+public class RegisterInformation {
     @jakarta.persistence.Id
     @jakarta.persistence.GeneratedValue(strategy = jakarta.persistence.GenerationType.AUTO)
     @jakarta.persistence.Column(name = "id", nullable = false)
@@ -36,5 +22,4 @@ public class User {
     private String pwd;
     @jakarta.persistence.Column
     private String perms;
-
 }

@@ -2,6 +2,7 @@ package com.example.systemanalysisanddesign.controller;
 
 import com.example.systemanalysisanddesign.dao.UserDao;
 import com.example.systemanalysisanddesign.model.Result;
+import com.example.systemanalysisanddesign.model.UsernameAndPassword;
 import com.example.systemanalysisanddesign.service.UserService;
 import com.example.systemanalysisanddesign.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,13 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping(value = "/login/normal/register")
-    public Result register(@RequestParam("username") String name,
-                         @RequestParam("password")String pwd){
-        return userService.userRegister(pwd,name);
+    public Result register(@RequestBody UsernameAndPassword usernameAndPassword){
+        return userService.userRegister(usernameAndPassword.getPassword(), usernameAndPassword.getUsername());
     }
 
     @PostMapping(value = "/login/normal/login")
-    public Result login(@RequestParam("username") String name, @RequestParam("password") String password) {
-        return userService.userLogin(password,name);
+    public Result login(@RequestBody UsernameAndPassword usernameAndPassword) {
+        return userService.userLogin(usernameAndPassword.getPassword(), usernameAndPassword.getUsername());
     }
 
     @PostMapping("/logout")
