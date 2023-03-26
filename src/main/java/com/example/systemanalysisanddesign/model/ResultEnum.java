@@ -23,7 +23,7 @@ public enum ResultEnum {
     UNKNOWN_ERROR(-1,"未知错误"),
     SUCCESS(10000,"成功"),
     NO_THAT(5,"目标不存在"),
-    USER_NOT_EXIST(1,"用户不存在"),
+    USER_NOT_EXIST(-1,"用户不存在"),
     USER_IS_EXISTS(2,"已存在"),
     DATA_IS_NULL(3,"数据为空"),
     NOT_FOUND(6,"未查询到目标"),

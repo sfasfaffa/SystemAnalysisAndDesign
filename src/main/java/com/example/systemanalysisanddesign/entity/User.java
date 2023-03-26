@@ -1,12 +1,7 @@
 package com.example.systemanalysisanddesign.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
 import lombok.*;
-import org.springframework.context.annotation.Primary;
-
-
-import java.util.List;
 
 /**
  * @ClassName User

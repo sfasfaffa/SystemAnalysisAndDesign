@@ -55,9 +55,9 @@ public class UserServiceImpl implements UserService {
             Serializable tokenId = subject.getSession().getId();
             return ResultUtil.success(String.valueOf(tokenId));
         }catch (UnknownAccountException e){//用户名不存在
-            return ResultUtil.error(1,"用户不存在");
+            return ResultUtil.error(-1,"用户不存在");
         }catch (IncorrectCredentialsException e){
-            return ResultUtil.error(4,"密码错误");
+            return ResultUtil.error(-1,"密码错误");
         }
     }
     @Override
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
             userDao.save(user);
             return ResultUtil.success("注册成功");
         }else {
-            return ResultUtil.error(2,"用户已存在");
+            return ResultUtil.error(-1,"用户已存在");
         }
     }
     @Override
