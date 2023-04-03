@@ -23,7 +23,7 @@ public class Result<T> {
     /**
      * 响应码
      */
-    private Integer code;
+    private Integer status;
 
     /**
      * 信息
@@ -74,7 +74,7 @@ public class Result<T> {
     @Override
     public String toString() {
         return "Result{" +
-                "code=" + code +
+                "status=" + status +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';

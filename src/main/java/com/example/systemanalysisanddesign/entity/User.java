@@ -3,6 +3,7 @@ package com.example.systemanalysisanddesign.entity;
 
 import lombok.*;
 
+
 import javax.persistence.*;
 
 
@@ -20,13 +21,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
-    @Column
+    @jakarta.persistence.Column
     private String name;
-    @Column
+    @jakarta.persistence.Column
     private String pwd;
-    @Column
+    @jakarta.persistence.Column
     private String perms;
-
-
 
 }

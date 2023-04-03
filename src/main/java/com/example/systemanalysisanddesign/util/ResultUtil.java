@@ -23,14 +23,14 @@ public class ResultUtil {
      **/
     public static Result success(Object object) {
         Result result = new Result();
-        result.setCode(ResultEnum.SUCCESS.getCode());
+        result.setStatus(0);
         result.setMsg(ResultEnum.SUCCESS.getMsg());
         result.setData(object);
         return result;
     }
     public static Result success(Object object,String seconds) {
         Result result = new Result();
-        result.setCode(ResultEnum.SUCCESS.getCode());
+        result.setStatus(ResultEnum.SUCCESS.getCode());
         result.setMsg(seconds);
         result.setData(object);
         return result;
@@ -48,21 +48,21 @@ public class ResultUtil {
      **/
     public static Result error( Integer code,String msg) {
         Result result = new Result();
-        result.setCode(code);
+        result.setStatus(code);
         result.setMsg(msg);
         result.setData(null);
         return result;
     }
     public static Result error( String msg,Object data) {
         Result result = new Result();
-        result.setCode(0);
+        result.setStatus(0);
         result.setMsg(msg);
         result.setData(data);
         return result;
     }
     public static Result error( String msg) {
         Result result = new Result();
-        result.setCode(0);
+        result.setStatus(0);
         result.setMsg(msg);
         result.setData(null);
         return result;
@@ -72,7 +72,7 @@ public class ResultUtil {
      **/
     public static Result unknown_Error() {
         Result result = new Result();
-        result.setCode(ResultEnum.UNKNOWN_ERROR.getCode());
+        result.setStatus(ResultEnum.UNKNOWN_ERROR.getCode());
         result.setMsg(ResultEnum.UNKNOWN_ERROR.getMsg());
         return result;
     }
