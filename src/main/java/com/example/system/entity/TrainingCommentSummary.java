@@ -13,13 +13,14 @@ import java.util.List;
 @Entity
 public class TrainingCommentSummary {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @OneToMany
     private List<TrainingCommentTable> trainingCommentTableList;
-
+    @Column
     private String satisfactionSummary;
-
+    @Column
     private String suggestionCollect;
 }

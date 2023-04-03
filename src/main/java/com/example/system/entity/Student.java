@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 public class Student {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -21,9 +22,9 @@ public class Student {
 
     @OneToOne
     private TrainingCommentTable trainingCommentTable;
-
+    @Column
     private String name;
-
+    @Column
     private String gender;
 
     @OneToMany

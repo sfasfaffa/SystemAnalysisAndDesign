@@ -13,15 +13,16 @@ import java.math.BigDecimal;
 @Entity
 public class TrainingFee {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(name = "tra_pla_id")
     @OneToOne
     private TrainingPlan trainingPlan;
-
+    @Column
     private BigDecimal unitFee;
-
+    @Column
     private BigDecimal totalFee;
-
+    @Column
     private String comment;
 }

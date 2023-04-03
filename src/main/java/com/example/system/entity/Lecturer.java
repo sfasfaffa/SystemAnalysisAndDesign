@@ -13,19 +13,20 @@ import java.util.List;
 public class Lecturer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer id;
 
     @OneToMany
     private List<LecturerTrainingPlan> lecturerTrainingPlanList;
-
+    @Column
     private String name;
-
+    @Column
     private String position;
-
+    @Column
     private String speciality;
-
+    @Column
     private String emailAddress;
-
+    @Column
     private String phone;
 }
 

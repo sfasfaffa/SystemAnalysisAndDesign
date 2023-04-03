@@ -15,14 +15,15 @@ import jakarta.persistence.*;
 @Entity(name = "sign_in_table")
 public class SignInTable {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(name = "stu_id")
     @ManyToOne
     private Student student;
-
+    @JoinColumn(name = "tra_pla_id")
     @ManyToOne
     private TrainingPlan trainingPlan;
-
+    @Column
     private boolean register;
 }

@@ -12,15 +12,16 @@ import jakarta.persistence.*;
 @Entity
 public class TrainingContent {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(name = "tra_pla_id")
     @OneToOne
     private TrainingPlan trainingPlan;
-
+    @Column
     private String skillStack;
-
+    @Column
     private String trainingGoal;
-
+    @Column
     private String comment;
 }

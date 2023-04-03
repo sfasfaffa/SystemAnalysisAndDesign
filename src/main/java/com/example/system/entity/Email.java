@@ -15,12 +15,12 @@ public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @Column
     private String recipientAddress;
-
+    @Column
     private String theme;
-
+    @Column
     private String mainBody;
-
+    @Column
     private String appendix;
 }

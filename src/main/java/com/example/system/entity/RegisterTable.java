@@ -15,24 +15,25 @@ import jakarta.persistence.*;
 @Entity(name = "register_table")
 public class RegisterTable {
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(name = "tra_pla_id")
     @ManyToOne
     private TrainingPlan trainingPlan;
-
+    @JoinColumn(name = "stu_id")
     @ManyToOne
     private Student student;
-
+    @Column
     private String companyName;
-
+    @Column
     private String post;
-
+    @Column
     private String technicalLevel;
-
+    @Column
     private String phone;
-
+    @Column
     private boolean registerSuccess;
-
+    @Column
     private boolean feePayment;
 }
