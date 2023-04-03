@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Builder
 public class TrainingFee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

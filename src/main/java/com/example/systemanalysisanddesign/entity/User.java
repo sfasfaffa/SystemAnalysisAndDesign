@@ -7,25 +7,21 @@ import lombok.*;
 import javax.persistence.*;
 
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Builder
+
 public class User {
 
     /**
      * id（自动顺序生成）
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Integer id;
-    @jakarta.persistence.Column
+    @Column
     private String name;
-    @jakarta.persistence.Column
+    @Column
     private String pwd;
-    @jakarta.persistence.Column
+    @Column
     private String perms;
 
 }

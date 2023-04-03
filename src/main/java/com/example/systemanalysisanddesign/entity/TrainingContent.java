@@ -11,7 +11,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Builder
 public class TrainingContent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -14,7 +14,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "register_table")
-@Builder
 public class RegisterTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

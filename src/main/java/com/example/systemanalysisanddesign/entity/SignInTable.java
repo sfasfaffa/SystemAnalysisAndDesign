@@ -14,7 +14,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "sign_in_table")
-@Builder
 public class SignInTable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
