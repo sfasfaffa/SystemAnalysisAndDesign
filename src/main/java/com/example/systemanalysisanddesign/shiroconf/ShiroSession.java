@@ -62,6 +62,4 @@ public class ShiroSession extends DefaultWebSessionManager {
             return sessionId;
         }
     }
-
-
 }
