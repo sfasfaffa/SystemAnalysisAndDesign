@@ -2,7 +2,8 @@ package com.example.system.entity;
 
 import lombok.*;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
