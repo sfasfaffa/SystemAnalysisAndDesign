@@ -1,7 +1,9 @@
 package com.example.system.entity;
 
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+
 import lombok.*;
 
 
