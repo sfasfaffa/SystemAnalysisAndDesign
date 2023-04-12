@@ -1,29 +1,22 @@
-package com.example.system.entity;
+package com.example.system.request;
 
-
-import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "email")
 @Builder
-public class Email {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column
+public class EmailRequest {
+
+
     private String recipientAddress;
-    @Column
+
     private String theme;
-    @Column
+
     private String mainBody;
-    @Column
+
     private String appendix;
 }

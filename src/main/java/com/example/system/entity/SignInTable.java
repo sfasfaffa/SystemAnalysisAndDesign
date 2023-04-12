@@ -1,6 +1,7 @@
 package com.example.system.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "sign_in_table")
+@Builder
 public class SignInTable {
     @Id
     @Column
