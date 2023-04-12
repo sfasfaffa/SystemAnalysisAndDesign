@@ -1,6 +1,7 @@
 package com.example.system.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +11,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "training_comment_table")
+@Builder
 public class TrainingCommentTable {
     @Id
     @Column

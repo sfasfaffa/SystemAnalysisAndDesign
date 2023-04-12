@@ -10,7 +10,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "training_plan")
+@Builder
 public class TrainingPlan {
     @Id
     @Column

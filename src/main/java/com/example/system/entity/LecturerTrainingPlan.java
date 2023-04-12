@@ -1,6 +1,7 @@
 package com.example.system.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "lecturer_training_plan")
+@Builder
 public class LecturerTrainingPlan {
     @Id
     @Column

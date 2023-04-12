@@ -1,41 +1,38 @@
-package com.example.system.entity;
+package com.example.system.request;
 
+import com.example.system.entity.TrainingPlan;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "training_apply")
 @Builder
-public class TrainingApply {
-    @Id
-    @Column
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
-    @JoinColumn(name = "tra_pla_id")
-    @OneToOne
-    private TrainingPlan trainingPlan;
-    @Column
+public class TrainingApplyRequest {
+
+    //private TrainingPlan trainingPlan;
+    private Integer trainingPlanId;
+
     private String companyName;
-    @Column
+
     private String phone;
-    @Column
+
     private String trainingContentHope;
-    @Column
+
     private String trainingTimeHope;
-    @Column
+
     private String trainingTarget;
-    @Column
+
     private Integer participantNum;
-    @Column
+
     private BigDecimal budget;
-    @Column
+
     private String comment;
 }
