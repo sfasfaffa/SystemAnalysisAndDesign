@@ -48,5 +48,7 @@ public class TrainingPlan {
     private Timestamp endTime;
     @Column
     private String trainingPlace;
-
+    @JoinColumn(name = "executor_id")
+    @ManyToOne
+    private Executor executor;
 }
