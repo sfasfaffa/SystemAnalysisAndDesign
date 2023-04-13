@@ -32,5 +32,6 @@ public class Student {
 
     @OneToMany
     private List<SignInTable> signInTableList;
-
+    @OneToOne
+    private User user;
 }

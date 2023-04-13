@@ -23,7 +23,7 @@ public class TrainingCommentTable {
     private TrainingCommentSummary trainingCommentSummary;
     @JoinColumn(name = "stu_id")
     @OneToOne
-    private Student student;
+    private RegisterTable registerTable;
     @Column
     private Integer trainingSatisfaction;
     @Column

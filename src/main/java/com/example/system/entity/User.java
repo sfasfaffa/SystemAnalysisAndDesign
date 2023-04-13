@@ -30,5 +30,8 @@ public class User {
     private String pwd;
     @Column
     private String perms;
-
+    @OneToOne
+    private Student student;
+    @OneToOne
+    private Executor executor;
 }

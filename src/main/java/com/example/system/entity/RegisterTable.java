@@ -39,4 +39,6 @@ public class RegisterTable {
     private boolean registerSuccess;
     @Column
     private boolean feePayment;
+    @OneToOne
+    TrainingCommentTable trainingCommentTable;
 }
