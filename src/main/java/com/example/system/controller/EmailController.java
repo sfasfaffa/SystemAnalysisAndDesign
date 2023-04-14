@@ -16,11 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmailController {
     @Autowired
     private EmailService emailService;
-
     @PostMapping("/createEmail")
     public BaseResponse<String> createEmail(@RequestBody EmailRequest emailRequest) {
         return emailService.createEmail(emailRequest);
     }
-
-
 }

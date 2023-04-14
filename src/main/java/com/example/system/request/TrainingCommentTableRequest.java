@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @Builder
 public class TrainingCommentTableRequest {
+    private Integer id;
+
     private Integer trainingCommunitySummary;
 
     private Integer studentId;
