@@ -47,4 +47,5 @@ public class RegisterTableService {
         }
         return ResultUtil.success(registerTables);
     }
+
 }
