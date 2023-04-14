@@ -16,6 +16,7 @@ public class TrainingCommentSummaryService {
         TrainingCommentSummary trainingCommentSummary = new TrainingCommentSummary();
         trainingCommentSummary.setSatisfactionSummary(trainingCommentSummaryRequest.getSatisfactionSummary());
         trainingCommentSummary.setSuggestionCollect(trainingCommentSummaryRequest.getSuggestionCollect());
+        trainingCommentSummaryDao.save(trainingCommentSummary);
         return ResultUtil.success();
     }
 }
