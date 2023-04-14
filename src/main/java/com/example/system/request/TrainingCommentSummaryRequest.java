@@ -1,15 +1,15 @@
 package com.example.system.request;
 
+import com.example.system.entity.TrainingCommentTable;
 import com.example.system.entity.TrainingPlan;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,22 +17,11 @@ import java.math.BigDecimal;
 @Builder
 public class TrainingCommentSummaryRequest {
 
-    //private TrainingPlan trainingPlan;
-    private Integer trainingPlanId;
+    private Integer id;
 
-    private String companyName;
+    private List<TrainingCommentTable> trainingCommentTableList;
 
-    private String phone;
+    private String satisfactionSummary;
 
-    private String trainingContentHope;
-
-    private String trainingTimeHope;
-
-    private String trainingTarget;
-
-    private Integer participantNum;
-
-    private BigDecimal budget;
-
-    private String comment;
+    private String suggestionCollect;
 }

@@ -1,5 +1,6 @@
 package com.example.system.request;
 
+import com.example.system.entity.RegisterTable;
 import com.example.system.entity.Student;
 import com.example.system.entity.TrainingCommentSummary;
 import lombok.AllArgsConstructor;
@@ -17,14 +18,13 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @Builder
 public class TrainingCommentTableRequest {
-
-    //private TrainingCommentSummary trainingCommentSummary;
     private Integer trainingCommunitySummary;
 
-    //private Student student;
     private Integer studentId;
 
     private Integer trainingSatisfaction;
 
     private String suggestions;
+
+    private RegisterTable registerTable;
 }

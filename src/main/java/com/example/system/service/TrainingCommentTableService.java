@@ -1,7 +1,23 @@
 package com.example.system.service;
 
+import com.example.system.dao.TrainingCommentTableDao;
+import com.example.system.entity.TrainingCommentTable;
+import com.example.system.model.Result;
+import com.example.system.request.TrainingCommentTableRequest;
+import com.example.system.util.ResultUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TrainingCommentTableService {
+    @Autowired
+    TrainingCommentTableDao trainingCommentTableDao;
+    public Result create(TrainingCommentTableRequest trainingCommentTableRequest){
+        TrainingCommentTable trainingCommentTable = new TrainingCommentTable();
+        trainingCommentTable.setRegisterTable(trainingCommentTableRequest.getRegisterTable());
+        trainingCommentTable.setSuggestions(trainingCommentTable.getSuggestions());
+        trainingCommentTable.setTrainingSatisfaction(trainingCommentTableRequest.getTrainingSatisfaction());
+        trainingCommentTableDao.save(trainingCommentTable);
+        return ResultUtil.success();
+    }
 }
