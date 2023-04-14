@@ -22,9 +22,6 @@ public class Student {
 
     @OneToMany
     private List<RegisterTable>registerTableList;
-
-    @OneToOne
-    private TrainingCommentTable trainingCommentTable;
     @Column
     private String name;
     @Column
