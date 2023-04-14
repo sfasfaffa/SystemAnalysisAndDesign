@@ -19,7 +19,7 @@ public class Lecturer {
     private Integer id;
 
     @OneToMany
-    private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    private List<TrainingPlan> TrainingPlanList;
     @Column
     private String name;
     @Column

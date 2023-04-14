@@ -1,6 +1,6 @@
 package com.example.system.request;
 
-import com.example.system.entity.LecturerTrainingPlan;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

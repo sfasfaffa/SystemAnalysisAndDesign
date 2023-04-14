@@ -18,7 +18,7 @@ import java.math.BigDecimal;
 public class TrainingApplyRequest {
 
     //private TrainingPlan trainingPlan;
-    private Integer trainingPlanId;
+    //private Integer trainingPlanId;
 
     private String companyName;
 

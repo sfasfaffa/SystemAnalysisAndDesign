@@ -14,7 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class TrainingPlanResponse {
-    private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    private List<String> lectureNameList;
 
     private String course_name;
 
