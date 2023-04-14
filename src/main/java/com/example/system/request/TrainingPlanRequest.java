@@ -1,17 +1,12 @@
 package com.example.system.request;
 
-import com.example.system.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,21 +14,31 @@ import java.util.List;
 @Builder
 public class TrainingPlanRequest {
 
-    private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    private Integer id;
 
-    private String course_name;
+    //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    private Integer lecturerId;
 
-    private TrainingContent trainingContent;
+    private String courseName;
 
-    private TrainingFee trainingFee;
+    //private TrainingContent trainingContent;
+    private String skillStack;
+    private String trainingGoal;
+    private String trainingContentComment;
 
-    private TrainingApply trainingApply;
+    //private TrainingFee trainingFee;
+    private BigDecimal unitFee;
+    private BigDecimal totalFee;
+    private String trainingFeeComment;
 
-    private TrainingCommentSummary trainingCommentSummary;
+    //private TrainingApply trainingApply;
+    private Integer trainingApplyId;
 
-    private List<RegisterTable> registerTableList;
+    //private TrainingCommentSummary trainingCommentSummary;
 
-    private List<SignInTable> signInTableList;
+    //private List<RegisterTable> registerTableList;
+
+    //private List<SignInTable> signInTableList;
 
     private Integer trainingNum;
 
