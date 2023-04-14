@@ -18,10 +18,10 @@ public class TrainingPlan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany
-    private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+    @ManyToOne
+    private Lecturer lecturer;
     @Column
-    private String course_name;
+    private String courseName;
     @JoinColumn(name = "tra_con_id")
     @OneToOne
     private TrainingContent trainingContent;
@@ -51,4 +51,6 @@ public class TrainingPlan {
     @JoinColumn(name = "executor_id")
     @ManyToOne
     private Executor executor;
+    @Column
+    private boolean submit;
 }
