@@ -9,6 +9,7 @@ import com.example.system.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -100,7 +101,7 @@ public class TrainingPlanService {
         }
     }
 
-    public Result publish(TrainingPlanRequest trainingPlanRequest){
+    public Result<String> publish(TrainingPlanRequest trainingPlanRequest){
         TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanRequest.getId());
         trainingPlan.setSubmit(true);
         List<Student> students = studentDao.findAll();
@@ -110,9 +111,20 @@ public class TrainingPlanService {
             email.setTheme("我们的新课程发布了！");
             email.setMainBody("我们的新课程："+trainingPlan.getCourseName()+"已经发布了,主要内容是"+trainingPlan.getTrainingContent().getTrainingGoal()+",主讲人是："+trainingPlan.getLecturer().getName()+",希望你能参与到课程中，与我们一起进步！");
             email.setRecipientAddress(post);
-            //此处调用邮件系统接口发送邮件
+            //此处本应调用邮件系统接口发送邮件，由于没有此系统所以不写
             emailDao.save(email);
         }
         return ResultUtil.success();
+    }
+
+    public Result<List<TrainingPlan>> getVisible(){
+        List<TrainingPlan> trainingPlans = trainingPlanDao.findAll();
+        List<TrainingPlan> trainingPlans2 = new ArrayList<>();
+        for (TrainingPlan trainingPlan : trainingPlans) {
+            if (trainingPlan.isSubmit()){
+                trainingPlans2.add(trainingPlan);
+            }
+        }
+        return ResultUtil.success(trainingPlans2);
     }
 }

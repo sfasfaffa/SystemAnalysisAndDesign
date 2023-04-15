@@ -14,19 +14,20 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @Builder
 public class StuAndUser {
-    @Column
+
     private String name;
-    @Column
+
     private String gender;
-    @Column
+
     private String pwd;
-    @Column
+
     private String perms;
-    @Column
+
     private String stuName;
-    @OneToOne
+
     private Student student;
-    @OneToOne
+
     private Executor executor;
 
+    private String post;
 }

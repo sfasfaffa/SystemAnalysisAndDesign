@@ -22,22 +22,32 @@ public class TrainingPlanController {
     private TrainingPlanService trainingPlanService;
 
     @PostMapping("/createTrainingPlan")
-    private Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
+    public Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.createTrainingPlan(trainingPlanRequest);
     }
 
     @GetMapping("/getTrainingPlanList")
-    private Result<List<TrainingPlan>>getTrainingPlanList(){
+    public Result<List<TrainingPlan>>getTrainingPlanList(){
         return trainingPlanService.getTrainingPlanList();
     }
 
     @PostMapping("/updateTrainingPlan")
-    private Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
+    public Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.updateTrainingPlan(trainingPlanRequest);
     }
 
     @DeleteMapping("/deleteTrainingPlan")
-    private Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
+    public Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
         return trainingPlanService.deleteTrainingPlan(trainingPlanId);
     }
+    @PostMapping(value = "/publish")
+    public Result<String> publish(@RequestBody TrainingPlanRequest trainingPlanRequest){
+        return trainingPlanService.publish(trainingPlanRequest);
+    }
+
+    @PostMapping(value = "/get/visible")
+    public Result<List<TrainingPlan>> getVisible(){
+        return trainingPlanService.getVisible();
+    }
+
 }
