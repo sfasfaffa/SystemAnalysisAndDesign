@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("trainingApply")
+@RequestMapping("/trainingApply")
 public class TrainingApplyController {
     @Autowired
-    private TrainingApplyService trainingApplyService;
+    public TrainingApplyService trainingApplyService;
 
-    @PostMapping("/createTrainingApply")
-    private Result<String> createTrainingApply(@RequestBody TrainingApplyRequest trainingApplyRequest){
+    @PostMapping("/create")
+    public Result<String> createTrainingApply(@RequestBody TrainingApplyRequest trainingApplyRequest){
         return trainingApplyService.createTrainingApply(trainingApplyRequest);
     }
 
-    @GetMapping("/getTrainingApplyList")
-    private Result<List<TrainingApplyResponse>> getTrainingApplyList(){
+    @GetMapping("/get")
+    public Result<List<TrainingApplyResponse>> getTrainingApplyList(){
         return trainingApplyService.getTrainingApplyList();
     }
 }

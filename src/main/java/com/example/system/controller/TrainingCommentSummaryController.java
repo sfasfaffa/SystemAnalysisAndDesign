@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("trainingCommentSummary")
+@RequestMapping("/trainingCommentSummary")
 public class TrainingCommentSummaryController {
     @Autowired
     TrainingCommentSummaryService trainingCommentSummaryService;
-    @PostMapping(value = "create")
+    @PostMapping(value = "/create")
     public Result create(@RequestBody TrainingCommentSummaryRequest trainingCommentSummaryRequest){
         return trainingCommentSummaryService.create(trainingCommentSummaryRequest);
     }
