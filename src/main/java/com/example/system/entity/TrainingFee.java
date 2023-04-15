@@ -20,7 +20,7 @@ public class TrainingFee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(name = "tra_pla_id")
-    @OneToOne
+    @OneToOne(mappedBy = "trainingFee",cascade = {CascadeType.ALL})
     private TrainingPlan trainingPlan;
     @Column
     private BigDecimal unitFee;
