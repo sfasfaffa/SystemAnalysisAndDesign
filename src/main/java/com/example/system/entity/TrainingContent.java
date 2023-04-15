@@ -19,7 +19,7 @@ public class TrainingContent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(name = "tra_pla_id")
-    @OneToOne(mappedBy = "trainingContent",cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "trainingContent",cascade = {CascadeType.REMOVE})
     private TrainingPlan trainingPlan;
     @Column
     private String skillStack;
