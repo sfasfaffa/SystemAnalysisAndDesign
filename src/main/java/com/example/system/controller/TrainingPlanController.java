@@ -16,28 +16,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("trainingPlan")
+@RequestMapping("/trainingPlan")
 public class TrainingPlanController {
     @Autowired
     private TrainingPlanService trainingPlanService;
 
-    @PostMapping("/createTrainingPlan")
-    private Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
+    @PostMapping("/create")
+    public Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.createTrainingPlan(trainingPlanRequest);
     }
 
-    @GetMapping("/getTrainingPlanList")
-    private Result<List<TrainingPlan>>getTrainingPlanList(){
+    @GetMapping("/get")
+    public Result<List<TrainingPlan>>getTrainingPlanList(){
         return trainingPlanService.getTrainingPlanList();
     }
 
-    @PostMapping("/updateTrainingPlan")
-    private Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
+    @PostMapping("/update")
+    public Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.updateTrainingPlan(trainingPlanRequest);
     }
 
-    @DeleteMapping("/deleteTrainingPlan")
-    private Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
+    @DeleteMapping("/delete")
+    public Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
         return trainingPlanService.deleteTrainingPlan(trainingPlanId);
     }
 }

@@ -43,7 +43,7 @@ public class TrainingApplyService {
         for(TrainingApply trainingApply:trainingApplies){
             TrainingApplyResponse trainingApplyResponse = TrainingApplyResponse
                     .builder()
-                    .trainingPlanId(trainingApply.getTrainingPlan().getId())
+//                    .trainingPlanId(trainingApply.getTrainingPlan().getId())
                     .companyName(trainingApply.getCompanyName())
                     .phone(trainingApply.getPhone())
                     .trainingContentHope(trainingApply.getTrainingContentHope())
