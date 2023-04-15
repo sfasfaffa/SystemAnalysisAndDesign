@@ -25,7 +25,6 @@ public class UserService {
         password=encodeByMd5(password+encodeByMd5(username));
         //获取当前用户
         Subject subject = SecurityUtils.getSubject();
-
         //封装用户的登陆数据
         UsernamePasswordToken token = new UsernamePasswordToken(username,password);
         try{

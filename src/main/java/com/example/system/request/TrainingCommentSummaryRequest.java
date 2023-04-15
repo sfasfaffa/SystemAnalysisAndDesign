@@ -16,7 +16,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class TrainingCommentSummaryRequest {
-
     private Integer id;
 
     private List<TrainingCommentTable> trainingCommentTableList;
