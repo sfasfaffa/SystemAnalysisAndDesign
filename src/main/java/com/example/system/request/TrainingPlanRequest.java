@@ -47,4 +47,6 @@ public class TrainingPlanRequest {
     private Timestamp endTime;
 
     private String trainingPlace;
+
+    private Integer executorId;
 }
