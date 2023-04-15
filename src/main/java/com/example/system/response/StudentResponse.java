@@ -17,4 +17,6 @@ public class StudentResponse {
     private Integer trainingPlanId;
 
     private boolean register;
+
+    private String post;
 }

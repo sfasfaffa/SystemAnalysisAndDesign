@@ -27,6 +27,7 @@ public class StudentService {
         student.setGender(stuAndUser.getGender());
         student.setUser(user);
         student.setName(stuAndUser.getStuName());
+        student.setPost(stuAndUser.getPost());
         user.setStudent(student);
         userDao.save(user);
         studentDao.save(student);

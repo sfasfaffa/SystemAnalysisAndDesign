@@ -20,4 +20,12 @@ public class TrainingCommentTableController {
     public Result createComment(@RequestBody TrainingCommentTableRequest trainingCommentTableRequest){
         return trainingCommentTableService.create(trainingCommentTableRequest);
     }
+    @PostMapping(value = "/delete")
+    public Result delete(@RequestBody TrainingCommentTableRequest trainingCommentTableRequest){
+        return trainingCommentTableService.delete(trainingCommentTableRequest);
+    }
+    @PostMapping(value = "/get/all")
+    public Result getAll(){
+        return trainingCommentTableService.getAll();
+    }
 }

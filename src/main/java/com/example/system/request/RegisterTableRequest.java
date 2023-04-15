@@ -16,10 +16,10 @@ import javax.persistence.Column;
 public class RegisterTableRequest {
 
     //private TrainingPlan trainingPlan;
-    private Integer trainingPlanId;
+    private Integer id;
 
     //private Student student;
-    private  Integer TrainingPlanId;
+    private  Integer trainingPlanId;
 
     private String companyName;
 
@@ -32,4 +32,6 @@ public class RegisterTableRequest {
     private boolean registerSuccess;
 
     private boolean feePayment;
+
+    private String cause;
 }

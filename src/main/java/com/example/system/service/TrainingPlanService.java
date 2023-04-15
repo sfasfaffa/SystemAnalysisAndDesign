@@ -1,18 +1,15 @@
 package com.example.system.service;
 
-import com.example.system.dao.LecturerDao;
-import com.example.system.dao.TrainingContentDao;
-import com.example.system.dao.TrainingFeeDao;
-import com.example.system.dao.TrainingPlanDao;
-import com.example.system.entity.TrainingContent;
-import com.example.system.entity.TrainingFee;
-import com.example.system.entity.TrainingPlan;
+import com.example.system.dao.*;
+import com.example.system.entity.*;
 import com.example.system.model.Result;
 import com.example.system.model.ResultEnum;
 import com.example.system.request.TrainingPlanRequest;
+import com.example.system.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,6 +22,10 @@ public class TrainingPlanService {
     private TrainingFeeDao trainingFeeDao;
     @Autowired
     private LecturerDao lecturerDao;
+    @Autowired
+    private StudentDao studentDao;
+    @Autowired
+    private EmailDao emailDao;
 
     public Result<String> createTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
         TrainingPlan trainingPlan = TrainingPlan
@@ -98,5 +99,32 @@ public class TrainingPlanService {
             trainingPlanDao.deleteById(trainingPlanId);
             return new Result<>(ResultEnum.SUCCESS.getCode(), "删除成功","");
         }
+    }
+
+    public Result<String> publish(TrainingPlanRequest trainingPlanRequest){
+        TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanRequest.getId());
+        trainingPlan.setSubmit(true);
+        List<Student> students = studentDao.findAll();
+        for (Student student : students) {
+            String post = student.getPost();
+            Email email = new Email();
+            email.setTheme("我们的新课程发布了！");
+            email.setMainBody("我们的新课程："+trainingPlan.getCourseName()+"已经发布了,主要内容是"+trainingPlan.getTrainingContent().getTrainingGoal()+",主讲人是："+trainingPlan.getLecturer().getName()+",希望你能参与到课程中，与我们一起进步！");
+            email.setRecipientAddress(post);
+            //此处本应调用邮件系统接口发送邮件，由于没有此系统所以不写
+            emailDao.save(email);
+        }
+        return ResultUtil.success();
+    }
+
+    public Result<List<TrainingPlan>> getVisible(){
+        List<TrainingPlan> trainingPlans = trainingPlanDao.findAll();
+        List<TrainingPlan> trainingPlans2 = new ArrayList<>();
+        for (TrainingPlan trainingPlan : trainingPlans) {
+            if (trainingPlan.isSubmit()){
+                trainingPlans2.add(trainingPlan);
+            }
+        }
+        return ResultUtil.success(trainingPlans2);
     }
 }

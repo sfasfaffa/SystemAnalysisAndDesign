@@ -21,23 +21,38 @@ public class TrainingPlanController {
     @Autowired
     private TrainingPlanService trainingPlanService;
 
+
     @PostMapping("/create")
     public Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.createTrainingPlan(trainingPlanRequest);
     }
+
 
     @GetMapping("/get")
     public Result<List<TrainingPlan>>getTrainingPlanList(){
         return trainingPlanService.getTrainingPlanList();
     }
 
+
     @PostMapping("/update")
     public Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.updateTrainingPlan(trainingPlanRequest);
     }
 
+
     @DeleteMapping("/delete")
     public Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
         return trainingPlanService.deleteTrainingPlan(trainingPlanId);
     }
+    
+    @PostMapping(value = "/publish")
+    public Result<String> publish(@RequestBody TrainingPlanRequest trainingPlanRequest){
+        return trainingPlanService.publish(trainingPlanRequest);
+    }
+
+    @PostMapping(value = "/get/visible")
+    public Result<List<TrainingPlan>> getVisible(){
+        return trainingPlanService.getVisible();
+    }
+
 }

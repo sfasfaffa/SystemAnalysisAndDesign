@@ -19,4 +19,8 @@ public class RegisterTableController {
     public Result getMy(){
         return registerTableService.getRegisterTable();
     }
+    @PostMapping(value = "/permit")
+    public Result permit(@RequestBody RegisterTableRequest registerTableRequest){
+        return registerTableService.permit(registerTableRequest);
+    }
 }
