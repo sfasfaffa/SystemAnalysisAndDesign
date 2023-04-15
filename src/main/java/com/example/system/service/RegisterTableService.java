@@ -2,6 +2,7 @@ package com.example.system.service;
 
 import com.example.system.dao.EmailDao;
 import com.example.system.dao.RegisterTableDao;
+import com.example.system.dao.SignInTableDao;
 import com.example.system.dao.TrainingPlanDao;
 import com.example.system.entity.*;
 import com.example.system.model.Result;
@@ -24,6 +25,8 @@ public class RegisterTableService {
     TrainingPlanDao trainingPlanDao;
     @Autowired
     EmailDao emailDao;
+    @Autowired
+    SignInTableDao signInTableDao;
     public Result createRegister(RegisterTableRequest registerTableRequest){
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
@@ -56,6 +59,10 @@ public class RegisterTableService {
         TrainingPlan trainingPlan = trainingPlanDao.getById(registerTableRequest.getId());
         if (registerTableRequest.isRegisterSuccess()){
             email.setMainBody("您对课程"+trainingPlan.getCourseName()+"的报名成功了，我们希望您能在接下来的学习过程中与我们一起成长，请登录网站查看课程的详细信息");
+            SignInTable signInTable = new SignInTable();
+            signInTable.setStudent(registerTable.getStudent());
+            signInTable.setTrainingPlan(registerTable.getTrainingPlan());
+            signInTableDao.save(signInTable);
         }else {
             email.setMainBody("我们很遗憾的通知您，您对课程"+trainingPlan.getCourseName()+"的报名未成功，原因是"+registerTableRequest.getCause()+"，请您在满足条件后再进行报名，我们期待与您再次相见" );
         }

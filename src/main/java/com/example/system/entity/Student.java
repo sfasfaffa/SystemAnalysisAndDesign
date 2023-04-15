@@ -26,7 +26,8 @@ public class Student {
     private String name;
     @Column
     private String gender;
-
+    @Column
+    private String post;
     @OneToMany
     private List<SignInTable> signInTableList;
     @OneToOne
