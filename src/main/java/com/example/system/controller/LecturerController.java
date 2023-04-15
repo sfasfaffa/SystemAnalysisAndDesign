@@ -26,7 +26,7 @@ public class LecturerController {
     public Result delete(@RequestBody LecturerRequest lecturerRequest){
         return lecturerService.delete(lecturerRequest);
     }
-    @PostMapping(value = "modify")
+    @PostMapping(value = "/modify")
     public Result modify(@RequestBody LecturerRequest lecturerRequest){
         return lecturerService.modify(lecturerRequest);
     }
