@@ -22,5 +22,5 @@ public class ExeAndUser {
 
     private String perms;
 
-    private String ExName;
+    private String exName;
 }

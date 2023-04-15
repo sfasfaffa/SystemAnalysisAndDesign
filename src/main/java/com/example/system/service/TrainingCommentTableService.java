@@ -1,5 +1,6 @@
 package com.example.system.service;
 
+import com.example.system.dao.RegisterTableDao;
 import com.example.system.dao.TrainingCommentTableDao;
 import com.example.system.entity.TrainingCommentTable;
 import com.example.system.entity.User;
@@ -15,10 +16,12 @@ import org.springframework.stereotype.Service;
 public class TrainingCommentTableService {
     @Autowired
     TrainingCommentTableDao trainingCommentTableDao;
+    @Autowired
+    RegisterTableDao registerTableDao;
     public Result create(TrainingCommentTableRequest trainingCommentTableRequest){
         TrainingCommentTable trainingCommentTable = new TrainingCommentTable();
-        trainingCommentTable.setRegisterTable(trainingCommentTableRequest.getRegisterTable());
-        trainingCommentTable.setSuggestions(trainingCommentTable.getSuggestions());
+        trainingCommentTable.setRegisterTable(registerTableDao.getOne(trainingCommentTableRequest.getRegisterTable()));
+        trainingCommentTable.setSuggestions(trainingCommentTableRequest.getSuggestions());
         trainingCommentTable.setTrainingSatisfaction(trainingCommentTableRequest.getTrainingSatisfaction());
         trainingCommentTableDao.save(trainingCommentTable);
         return ResultUtil.success();

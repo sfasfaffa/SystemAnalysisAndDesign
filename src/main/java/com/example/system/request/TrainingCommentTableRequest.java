@@ -28,5 +28,5 @@ public class TrainingCommentTableRequest {
 
     private String suggestions;
 
-    private RegisterTable registerTable;
+    private Integer registerTable;
 }
