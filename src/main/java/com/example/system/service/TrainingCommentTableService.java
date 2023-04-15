@@ -20,7 +20,9 @@ public class TrainingCommentTableService {
     RegisterTableDao registerTableDao;
     public Result create(TrainingCommentTableRequest trainingCommentTableRequest){
         TrainingCommentTable trainingCommentTable = new TrainingCommentTable();
-        trainingCommentTable.setRegisterTable(registerTableDao.getOne(trainingCommentTableRequest.getRegisterTable()));
+        if(trainingCommentTableRequest.getRegisterTable()!=null){
+            trainingCommentTable.setRegisterTable(registerTableDao.getOne(trainingCommentTableRequest.getRegisterTable()));
+        }
         trainingCommentTable.setSuggestions(trainingCommentTableRequest.getSuggestions());
         trainingCommentTable.setTrainingSatisfaction(trainingCommentTableRequest.getTrainingSatisfaction());
         trainingCommentTableDao.save(trainingCommentTable);

@@ -18,7 +18,11 @@ public class TrainingPlanResponse {
 
     private Integer id;
 
+
+    private String lecturerName;
+
     private String courseName;
+
 
     private String skillStack;
 
@@ -41,4 +45,6 @@ public class TrainingPlanResponse {
     private String trainingPlace;
 
     private Integer executorId;
+
+    private String executorName;
 }
