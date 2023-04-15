@@ -21,7 +21,7 @@ import lombok.Getter;
 public enum ResultEnum {
     //这里是可以自己定义的，方便与前端交互即可
     UNKNOWN_ERROR(-1,"未知错误"),
-    SUCCESS(10000,"成功"),
+    SUCCESS(0,"成功"),
     NO_THAT(5,"目标不存在"),
     USER_NOT_EXIST(-1,"用户不存在"),
     USER_IS_EXISTS(2,"已存在"),

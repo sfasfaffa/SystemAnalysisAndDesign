@@ -29,8 +29,8 @@ public class TrainingPlanController {
 
 
     @GetMapping("/get")
-    public Result<List<TrainingPlan>>getTrainingPlanList(){
-        return trainingPlanService.getTrainingPlanList();
+    public Result<List<TrainingPlan>>getTrainingPlanList(@RequestBody Integer executorId){
+        return trainingPlanService.getTrainingPlanList(executorId);
     }
 
 
