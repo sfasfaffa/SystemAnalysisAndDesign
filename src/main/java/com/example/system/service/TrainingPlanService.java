@@ -26,6 +26,8 @@ public class TrainingPlanService {
     private StudentDao studentDao;
     @Autowired
     private EmailDao emailDao;
+    @Autowired
+    private ExecutorDao executorDao;
 
     public Result<String> createTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
         TrainingPlan trainingPlan = TrainingPlan
@@ -36,6 +38,8 @@ public class TrainingPlanService {
                 .endTime(trainingPlanRequest.getEndTime())
                 .trainingPlace(trainingPlanRequest.getTrainingPlace())
                 .lecturer(lecturerDao.findById(trainingPlanRequest.getLecturerId()).isPresent()?lecturerDao.findById(trainingPlanRequest.getLecturerId()).get():null)
+                .executor(executorDao.findById(trainingPlanRequest.getExecutorId()).isPresent()?executorDao.findById(trainingPlanRequest.getExecutorId()).get():null)
+                .submit(false)
                 .build();
         TrainingContent trainingContent = TrainingContent
                 .builder()
