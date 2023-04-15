@@ -44,8 +44,8 @@ public class TrainingPlanController {
     }
 
     @DeleteMapping("/delete")
-    public Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){
-        return trainingPlanService.deleteTrainingPlan(trainingPlanId);
+    public Result<String>deleteTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
+        return trainingPlanService.deleteTrainingPlan(trainingPlanRequest);
     }
     
     @PostMapping(value = "/publish")

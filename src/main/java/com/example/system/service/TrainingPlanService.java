@@ -108,12 +108,16 @@ public class TrainingPlanService {
         return new Result<>(ResultEnum.SUCCESS.getCode(),"修改成功","");
     }
 
-    public Result<String> deleteTrainingPlan(Integer trainingPlanId) {
-        trainingPlanDao.findById(trainingPlanId);
-        if(trainingPlanDao==null){
+    public Result<String> deleteTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
+        Integer trainingPlanId = trainingPlanRequest.getId();
+        if(!trainingPlanDao.findById(trainingPlanId).isPresent()){
             return new Result<>(ResultEnum.NOT_FOUND.getCode(), "培训计划不存在","");
         }
         else {
+//            TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanId);
+//            trainingContentDao.delete(trainingPlan.getTrainingContent());
+//            trainingFeeDao.delete(trainingPlan.getTrainingFee());
+//            executorDao.delete(trainingPlan.getExecutor());
             trainingPlanDao.deleteById(trainingPlanId);
             return new Result<>(ResultEnum.SUCCESS.getCode(), "删除成功","");
         }

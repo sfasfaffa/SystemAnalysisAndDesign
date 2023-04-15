@@ -19,7 +19,9 @@ public class TrainingCommentSummary {
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    @JoinColumn(name = "tra_pla_id")
+    @OneToOne(mappedBy = "trainingCommentSummary",cascade = {CascadeType.ALL})
+    private TrainingPlan trainingPlan;
     @OneToMany
     private List<TrainingCommentTable> trainingCommentTableList;
     @Column
