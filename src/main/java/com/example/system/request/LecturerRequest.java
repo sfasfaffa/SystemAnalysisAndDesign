@@ -16,8 +16,6 @@ import java.util.List;
 @Builder
 public class LecturerRequest {
 
-    //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
-
     private String name;
 
     private String position;

@@ -1,7 +1,9 @@
 package com.example.system.service;
 
 import com.example.system.dao.TrainingCommentSummaryDao;
+import com.example.system.dao.TrainingPlanDao;
 import com.example.system.entity.TrainingCommentSummary;
+import com.example.system.entity.TrainingPlan;
 import com.example.system.model.Result;
 import com.example.system.request.TrainingCommentSummaryRequest;
 import com.example.system.util.ResultUtil;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TrainingCommentSummaryService {
+    @Autowired
+    TrainingPlanDao trainingPlanDao;
     @Autowired
     TrainingCommentSummaryDao trainingCommentSummaryDao;
     public Result create(TrainingCommentSummaryRequest trainingCommentSummaryRequest){

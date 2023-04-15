@@ -18,29 +18,23 @@ public class TrainingPlanResponse {
 
     private Integer id;
 
-    //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
+
     private String lecturerName;
 
-    private String courseName;//
+    private String courseName;
 
-    //private TrainingContent trainingContent;
+
     private String skillStack;
+
     private String trainingGoal;
+
     private String trainingContentComment;
 
-    //private TrainingFee trainingFee;
     private BigDecimal unitFee;
+
     private BigDecimal totalFee;
+
     private String trainingFeeComment;
-
-    //private TrainingApply trainingApply;
-    //private Integer trainingApplyId;
-
-    //private TrainingCommentSummary trainingCommentSummary;
-
-    //private List<RegisterTable> registerTableList;
-
-    //private List<SignInTable> signInTableList;
 
     private Integer trainingNum;
 
