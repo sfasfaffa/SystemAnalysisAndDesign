@@ -34,7 +34,7 @@ public class TrainingPlanController {
     }
 
     @GetMapping("/get/all")
-    public Result<List<TrainingPlan>>getAll(){
+    public Result<List<TrainingPlanResponse>>getAll(){
         return trainingPlanService.getAll();
     }
 

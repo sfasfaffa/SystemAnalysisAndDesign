@@ -25,12 +25,11 @@ public class StudentService {
         user.setPwd(encodeByMd5(stuAndUser.getPwd()+encodeByMd5(stuAndUser.getName())));
         Student student = new Student();
         student.setGender(stuAndUser.getGender());
-        student.setUser(user);
         student.setName(stuAndUser.getStuName());
         student.setPost(stuAndUser.getPost());
         user.setStudent(student);
-        userDao.save(user);
         studentDao.save(student);
+        userDao.save(user);
         return ResultUtil.success();
     }
 }

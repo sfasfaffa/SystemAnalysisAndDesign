@@ -40,6 +40,8 @@ public class ShiroConfig {
         filterMap.put("/no/auth","anon");
         filterMap.put("/login/normal/login","anon");
         filterMap.put("/login/normal/register","anon");
+        filterMap.put("/student/sign/in","anon");
+        filterMap.put("/executor/register","anon");
         filterMap.put("/login/wx/login","anon");
         filterMap.put("/area/get/**","anon");
         filterMap.put("/area/set/one","perms[admin]");

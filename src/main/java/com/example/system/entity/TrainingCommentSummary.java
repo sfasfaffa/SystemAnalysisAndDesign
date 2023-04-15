@@ -20,7 +20,7 @@ public class TrainingCommentSummary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JoinColumn(name = "tra_pla_id")
-    @OneToOne(mappedBy = "trainingCommentSummary",cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "trainingCommentSummary",cascade = {CascadeType.REMOVE})
     private TrainingPlan trainingPlan;
     @OneToMany
     private List<TrainingCommentTable> trainingCommentTableList;

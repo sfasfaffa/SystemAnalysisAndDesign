@@ -5,6 +5,7 @@ import com.example.system.entity.*;
 import com.example.system.model.Result;
 import com.example.system.model.ResultEnum;
 import com.example.system.request.TrainingPlanRequest;
+import com.example.system.response.TrainingPlanResponse;
 import com.example.system.util.ResultUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -79,8 +80,27 @@ public class TrainingPlanService {
         }
         return new Result<>(ResultEnum.SUCCESS.getCode(), "获取培训计划列表成功",trainingPlanList);
     }
-    public Result<List<TrainingPlan>> getAll(){
-        return ResultUtil.success(trainingPlanDao.findAll());
+    public Result<List<TrainingPlanResponse>> getAll(){
+        List<TrainingPlan> trainingPlanList = trainingPlanDao.findAll();
+        List<TrainingPlanResponse> trainingPlanResponseList = new ArrayList<>();
+        for(TrainingPlan trainingPlan:trainingPlanList){
+            TrainingPlanResponse trainingPlanResponse = TrainingPlanResponse
+                    .builder()
+                    .courseName(trainingPlan.getCourseName())
+                    .skillStack(trainingPlan.getTrainingContent().getSkillStack())
+                    .trainingGoal(trainingPlan.getTrainingContent().getTrainingGoal())
+                    .trainingContentComment(trainingPlan.getTrainingContent().getComment())
+                    .unitFee(trainingPlan.getTrainingFee().getUnitFee())
+                    .totalFee(trainingPlan.getTrainingFee().getTotalFee())
+                    .trainingFeeComment(trainingPlan.getTrainingFee().getComment())
+                    .trainingNum(trainingPlan.getTrainingNum())
+                    .startTime(trainingPlan.getStartTime())
+                    .endTime(trainingPlan.getEndTime())
+                    .trainingPlace(trainingPlan.getTrainingPlace())
+                    .build();
+            trainingPlanResponseList.add(trainingPlanResponse);
+        }
+        return new Result<>(ResultEnum.SUCCESS.getCode(), "获取全部培训计划成功",trainingPlanResponseList);
     }
 
     public Result<String> updateTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
