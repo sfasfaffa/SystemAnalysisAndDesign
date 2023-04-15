@@ -41,12 +41,13 @@ public class UserService {
         }
     }
 
-    public Result userRegister(String password, String username) {
+    public Result userRegister(String password, String username,String perms) {
         password=encodeByMd5(password+encodeByMd5(username));
         if(userDao.findByName(username)==null){//确保用户名不重复
             User user=new User();
             user.setName(username);
             user.setPwd(password);
+            user.setPerms(perms);
             userDao.save(user);
             return ResultUtil.success("注册成功");
         }else {

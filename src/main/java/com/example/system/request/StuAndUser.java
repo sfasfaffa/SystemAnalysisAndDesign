@@ -25,9 +25,5 @@ public class StuAndUser {
 
     private String stuName;
 
-    private Student student;
-
-    private Executor executor;
-
     private String post;
 }

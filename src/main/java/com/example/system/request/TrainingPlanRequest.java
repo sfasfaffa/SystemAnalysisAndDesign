@@ -19,7 +19,7 @@ public class TrainingPlanRequest {
     //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
     private Integer lecturerId;
 
-    private String courseName;
+    private String courseName;//
 
     //private TrainingContent trainingContent;
     private String skillStack;
@@ -32,7 +32,7 @@ public class TrainingPlanRequest {
     private String trainingFeeComment;
 
     //private TrainingApply trainingApply;
-    private Integer trainingApplyId;
+    //private Integer trainingApplyId;
 
     //private TrainingCommentSummary trainingCommentSummary;
 

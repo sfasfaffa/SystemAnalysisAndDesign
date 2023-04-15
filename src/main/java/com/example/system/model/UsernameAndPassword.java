@@ -14,4 +14,5 @@ import lombok.Setter;
 public class UsernameAndPassword {
     String username;
     String password;
+    String perms;
 }

@@ -16,7 +16,7 @@ public class LoginController {
 
     @PostMapping(value = "/login/normal/register")
     public Result register(@RequestBody UsernameAndPassword usernameAndPassword){
-        return userService.userRegister(usernameAndPassword.getPassword(), usernameAndPassword.getUsername());
+        return userService.userRegister(usernameAndPassword.getPassword(), usernameAndPassword.getUsername(),usernameAndPassword.getPerms());
     }
 
     @PostMapping(value = "/login/normal/login")
