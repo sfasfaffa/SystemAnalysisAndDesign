@@ -43,9 +43,9 @@ public class TrainingPlan {
     @Column
     private Integer trainingNum;
     @Column
-    private Timestamp startTime;
+    private String startTime;
     @Column
-    private Timestamp endTime;
+    private String endTime;
     @Column
     private String trainingPlace;
     @JoinColumn(name = "executor_id")

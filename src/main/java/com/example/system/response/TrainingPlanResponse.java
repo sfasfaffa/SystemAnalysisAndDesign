@@ -44,9 +44,9 @@ public class TrainingPlanResponse {
 
     private Integer trainingNum;
 
-    private Timestamp startTime;
+    private String startTime;
 
-    private Timestamp endTime;
+    private String endTime;
 
     private String trainingPlace;
 
