@@ -22,4 +22,12 @@ public class LecturerController {
     public Result selectAll(){
         return lecturerService.selectAll();
     }
+    @PostMapping(value = "/delete")
+    public Result delete(@RequestBody LecturerRequest lecturerRequest){
+        return lecturerService.delete(lecturerRequest);
+    }
+    @PostMapping(value = "modify")
+    public Result modify(@RequestBody LecturerRequest lecturerRequest){
+        return lecturerService.modify(lecturerRequest);
+    }
 }

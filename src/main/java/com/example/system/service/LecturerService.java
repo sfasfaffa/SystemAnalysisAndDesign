@@ -29,4 +29,19 @@ public class LecturerService {
         List<Lecturer> lecturers = lecturerDao.findAll();
         return ResultUtil.success(lecturers);
     }
+    public Result delete(LecturerRequest lecturerRequest){
+        Lecturer lecturer = lecturerDao.getOne(lecturerRequest.getId());
+        lecturerDao.delete(lecturer);
+        return ResultUtil.success();
+    }
+    public Result modify(LecturerRequest lecturerRequest){
+        Lecturer lecturer = lecturerDao.getOne(lecturerRequest.getId());
+        lecturer.setPosition(lecturerRequest.getPosition());
+        lecturer.setSpeciality(lecturerRequest.getSpeciality());
+        lecturer.setPosition(lecturerRequest.getPosition());
+        lecturer.setEmailAddress(lecturerRequest.getEmailAddress());
+        lecturer.setName(lecturerRequest.getName());
+        lecturerDao.save(lecturer);
+        return ResultUtil.success();
+    }
 }

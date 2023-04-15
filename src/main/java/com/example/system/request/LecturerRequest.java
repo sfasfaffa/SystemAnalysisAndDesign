@@ -27,4 +27,6 @@ public class LecturerRequest {
     private String emailAddress;
 
     private String phone;
+
+    private Integer id;
 }
