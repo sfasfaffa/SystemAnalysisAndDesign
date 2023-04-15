@@ -16,9 +16,9 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @Builder
 public class SignInTableRequest {
+    private Integer id;
     //private Student student;
     private Integer studentId;
-
     //private TrainingPlan trainingPlan;
     private Integer trainingPlanId;
 

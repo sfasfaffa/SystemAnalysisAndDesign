@@ -21,24 +21,27 @@ public class TrainingPlanController {
     @Autowired
     private TrainingPlanService trainingPlanService;
 
-
+//excutor需要修改
     @PostMapping("/create")
     public Result<String> createTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.createTrainingPlan(trainingPlanRequest);
     }
 
-
+//需要新建返回类
     @GetMapping("/get")
-    public Result<List<TrainingPlan>>getTrainingPlanList(@RequestBody Integer executorId){
-        return trainingPlanService.getTrainingPlanList(executorId);
+    public Result<List<TrainingPlan>>getTrainingPlanList(){
+        return trainingPlanService.getTrainingPlanList();
     }
 
+    @GetMapping("/get/all")
+    public Result<List<TrainingPlan>>getAll(){
+        return trainingPlanService.getAll();
+    }
 
     @PostMapping("/update")
     public Result<String>updateTrainingPlan(@RequestBody TrainingPlanRequest trainingPlanRequest){
         return trainingPlanService.updateTrainingPlan(trainingPlanRequest);
     }
-
 
     @DeleteMapping("/delete")
     public Result<String>deleteTrainingPlan(@RequestBody Integer trainingPlanId){

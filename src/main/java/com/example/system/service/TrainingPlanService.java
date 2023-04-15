@@ -6,6 +6,8 @@ import com.example.system.model.Result;
 import com.example.system.model.ResultEnum;
 import com.example.system.request.TrainingPlanRequest;
 import com.example.system.util.ResultUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,7 +65,10 @@ public class TrainingPlanService {
         return new Result<>(ResultEnum.SUCCESS.getCode(), "创建培训计划成功","");
     }
 
-    public Result<List<TrainingPlan>> getTrainingPlanList(Integer executorId) {
+    public Result<List<TrainingPlan>> getTrainingPlanList() {
+        Subject subject = SecurityUtils.getSubject();
+        User user = (User) subject.getPrincipal();
+        Integer executorId = user.getExecutor().getId();
         List<TrainingPlan> trainingPlanList = new ArrayList<>();
         if(!executorDao.findById(executorId).isPresent()){
             return new Result<>(ResultEnum.NOT_FOUND.getCode(), "执行人不存在",null);
@@ -74,7 +79,9 @@ public class TrainingPlanService {
         }
         return new Result<>(ResultEnum.SUCCESS.getCode(), "获取培训计划列表成功",trainingPlanList);
     }
-
+    public Result<List<TrainingPlan>> getAll(){
+        return ResultUtil.success(trainingPlanDao.findAll());
+    }
 
     public Result<String> updateTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
         TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanRequest.getId());
