@@ -63,8 +63,15 @@ public class TrainingPlanService {
         return new Result<>(ResultEnum.SUCCESS.getCode(), "创建培训计划成功","");
     }
 
-    public Result<List<TrainingPlan>> getTrainingPlanList() {
-        List<TrainingPlan> trainingPlanList = trainingPlanDao.findAll();
+    public Result<List<TrainingPlan>> getTrainingPlanList(Integer executorId) {
+        List<TrainingPlan> trainingPlanList = new ArrayList<>();
+        if(!executorDao.findById(executorId).isPresent()){
+            return new Result<>(ResultEnum.NOT_FOUND.getCode(), "执行人不存在",null);
+        }
+        else {
+            Executor executor = executorDao.findById(executorId).get();
+            trainingPlanList = trainingPlanDao.getAllByExecutor(executor);
+        }
         return new Result<>(ResultEnum.SUCCESS.getCode(), "获取培训计划列表成功",trainingPlanList);
     }
 
