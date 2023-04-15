@@ -1,11 +1,9 @@
 package com.example.system.service;
 
+import com.example.system.dao.EmailDao;
 import com.example.system.dao.RegisterTableDao;
 import com.example.system.dao.TrainingPlanDao;
-import com.example.system.entity.Executor;
-import com.example.system.entity.RegisterTable;
-import com.example.system.entity.TrainingPlan;
-import com.example.system.entity.User;
+import com.example.system.entity.*;
 import com.example.system.model.Result;
 import com.example.system.request.RegisterTableRequest;
 import com.example.system.util.ResultUtil;
@@ -24,6 +22,8 @@ public class RegisterTableService {
     RegisterTableDao registerTableDao;
     @Autowired
     TrainingPlanDao trainingPlanDao;
+    @Autowired
+    EmailDao emailDao;
     public Result createRegister(RegisterTableRequest registerTableRequest){
         Subject subject = SecurityUtils.getSubject();
         User user = (User) subject.getPrincipal();
@@ -47,5 +47,18 @@ public class RegisterTableService {
         }
         return ResultUtil.success(registerTables);
     }
-
+    public Result permit(RegisterTableRequest registerTableRequest){
+        RegisterTable registerTable = registerTableDao.getOne(registerTableRequest.getId());
+        registerTable.setRegisterSuccess(registerTableRequest.isRegisterSuccess());
+        Email email = new Email();
+        email.setRecipientAddress(registerTableRequest.getPost());
+        email.setTheme("课程报名结果通知");
+        TrainingPlan trainingPlan = trainingPlanDao.getById(registerTableRequest.getId());
+        if (registerTableRequest.isRegisterSuccess()){
+            email.setMainBody("您对课程"+trainingPlan.getCourseName()+"的报名成功了，我们希望您能在接下来的学习过程中与我们一起成长，请登录网站查看课程的详细信息");
+        }else {
+            email.setMainBody("我们很遗憾的通知您，您对课程"+trainingPlan.getCourseName()+"的报名未成功，原因是"+registerTableRequest.getCause()+"，请您在满足条件后再进行报名，我们期待与您再次相见" );
+        }
+        return ResultUtil.success();
+    }
 }
