@@ -19,7 +19,7 @@ public class TrainingPlanResponse {
     private Integer id;
 
     //private List<LecturerTrainingPlan> lecturerTrainingPlanList;
-    //private Integer lecturerId;
+    private String lecturerName;
 
     private String courseName;//
 
@@ -51,4 +51,6 @@ public class TrainingPlanResponse {
     private String trainingPlace;
 
     private Integer executorId;
+
+    private String executorName;
 }

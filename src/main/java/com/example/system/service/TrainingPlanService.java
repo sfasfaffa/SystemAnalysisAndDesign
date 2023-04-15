@@ -81,11 +81,23 @@ public class TrainingPlanService {
         return new Result<>(ResultEnum.SUCCESS.getCode(), "获取培训计划列表成功",trainingPlanList);
     }
     public Result<List<TrainingPlanResponse>> getAll(){
-        List<TrainingPlan> trainingPlanList = trainingPlanDao.findAll();
+        Subject subject = SecurityUtils.getSubject();
+        User user = (User) subject.getPrincipal();
+        String perms = user.getPerms();
+        List<TrainingPlan> trainingPlanList;
+        if(perms.equals("executor")){
+            Executor executor = user.getExecutor();
+            trainingPlanList = trainingPlanDao.getAllByExecutor(executor);
+        }
+        else {
+            trainingPlanList = trainingPlanDao.findAll();
+        }
         List<TrainingPlanResponse> trainingPlanResponseList = new ArrayList<>();
         for(TrainingPlan trainingPlan:trainingPlanList){
             TrainingPlanResponse trainingPlanResponse = TrainingPlanResponse
                     .builder()
+                    .lecturerName(trainingPlan.getLecturer().getName())
+                    .id(trainingPlan.getId())
                     .courseName(trainingPlan.getCourseName())
                     .skillStack(trainingPlan.getTrainingContent().getSkillStack())
                     .trainingGoal(trainingPlan.getTrainingContent().getTrainingGoal())
@@ -97,6 +109,7 @@ public class TrainingPlanService {
                     .startTime(trainingPlan.getStartTime())
                     .endTime(trainingPlan.getEndTime())
                     .trainingPlace(trainingPlan.getTrainingPlace())
+                    .executorName(trainingPlan.getExecutor().getName())
                     .build();
             trainingPlanResponseList.add(trainingPlanResponse);
         }
@@ -134,10 +147,6 @@ public class TrainingPlanService {
             return new Result<>(ResultEnum.NOT_FOUND.getCode(), "培训计划不存在","");
         }
         else {
-//            TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanId);
-//            trainingContentDao.delete(trainingPlan.getTrainingContent());
-//            trainingFeeDao.delete(trainingPlan.getTrainingFee());
-//            executorDao.delete(trainingPlan.getExecutor());
             trainingPlanDao.deleteById(trainingPlanId);
             return new Result<>(ResultEnum.SUCCESS.getCode(), "删除成功","");
         }

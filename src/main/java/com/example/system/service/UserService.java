@@ -33,7 +33,7 @@ public class UserService {
             User user=userDao.findByName(username);
             System.out.println(user.getName().toString());
             Serializable tokenId = subject.getSession().getId();
-            return ResultUtil.success(String.valueOf(tokenId));
+            return ResultUtil.success(String.valueOf(tokenId),user.getPerms());
         }catch (UnknownAccountException e){//用户名不存在
             return ResultUtil.error(1,"用户不存在");
         }catch (IncorrectCredentialsException e){

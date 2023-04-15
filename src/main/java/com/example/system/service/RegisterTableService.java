@@ -37,6 +37,7 @@ public class RegisterTableService {
         registerTable.setStudent(user.getStudent());
         registerTable.setTechnicalLevel(registerTableRequest.getTechnicalLevel());
         registerTable.setTrainingPlan(trainingPlanDao.getById(registerTableRequest.getTrainingPlanId()));
+        registerTableDao.save(registerTable);
         return ResultUtil.success("注册成功");
     }
     public Result getRegisterTable(){
@@ -56,7 +57,7 @@ public class RegisterTableService {
         Email email = new Email();
         email.setRecipientAddress(registerTableRequest.getPost());
         email.setTheme("课程报名结果通知");
-        TrainingPlan trainingPlan = trainingPlanDao.getById(registerTableRequest.getId());
+        TrainingPlan trainingPlan = trainingPlanDao.getById(registerTableRequest.getTrainingPlanId());
         if (registerTableRequest.isRegisterSuccess()){
             email.setMainBody("您对课程"+trainingPlan.getCourseName()+"的报名成功了，我们希望您能在接下来的学习过程中与我们一起成长，请登录网站查看课程的详细信息");
             SignInTable signInTable = new SignInTable();
@@ -66,6 +67,8 @@ public class RegisterTableService {
         }else {
             email.setMainBody("我们很遗憾的通知您，您对课程"+trainingPlan.getCourseName()+"的报名未成功，原因是"+registerTableRequest.getCause()+"，请您在满足条件后再进行报名，我们期待与您再次相见" );
         }
+        emailDao.save(email);
+        registerTableDao.save(registerTable);
         return ResultUtil.success();
     }
 }
