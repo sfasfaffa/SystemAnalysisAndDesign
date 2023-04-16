@@ -23,4 +23,6 @@ public class SignInTableRequest {
     private Integer trainingPlanId;
 
     private boolean register;
+
+    private boolean payment;
 }

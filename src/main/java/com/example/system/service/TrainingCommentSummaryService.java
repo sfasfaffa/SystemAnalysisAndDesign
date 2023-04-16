@@ -20,8 +20,6 @@ public class TrainingCommentSummaryService {
     TrainingPlanDao trainingPlanDao;
     @Autowired
     TrainingCommentSummaryDao trainingCommentSummaryDao;
-    @Autowired
-    TrainingPlanDao trainingPlanDao;
     public Result create(TrainingCommentSummaryRequest trainingCommentSummaryRequest){
         TrainingCommentSummary trainingCommentSummary = new TrainingCommentSummary();
         trainingCommentSummary.setSatisfactionSummary(trainingCommentSummaryRequest.getSatisfactionSummary());

@@ -31,6 +31,8 @@ public class TrainingPlanService {
     private EmailDao emailDao;
     @Autowired
     private ExecutorDao executorDao;
+    @Autowired
+    private SignInTableDao signInTableDao;
 
     public Result<String> createTrainingPlan(TrainingPlanRequest trainingPlanRequest) {
         TrainingPlan trainingPlan = TrainingPlan
@@ -147,7 +149,11 @@ public class TrainingPlanService {
             return new Result<>(ResultEnum.NOT_FOUND.getCode(), "培训计划不存在","");
         }
         else {
-            trainingPlanDao.deleteById(trainingPlanId);
+            TrainingPlan trainingPlan = trainingPlanDao.getById(trainingPlanId);
+            signInTableDao.deleteAll(trainingPlan.getSignInTableList());
+            if(trainingPlanDao.findById(trainingPlanId).isPresent()){
+                trainingPlanDao.deleteById(trainingPlanId);
+            }
             return new Result<>(ResultEnum.SUCCESS.getCode(), "删除成功","");
         }
     }

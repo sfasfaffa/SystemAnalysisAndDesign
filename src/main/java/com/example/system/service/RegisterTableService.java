@@ -42,10 +42,10 @@ public class RegisterTableService {
         return ResultUtil.success("注册成功");
     }
     public Result getRegisterTable(){
-        Subject subject = SecurityUtils.getSubject();
-        User user = (User) subject.getPrincipal();
-        Executor executor = user.getExecutor();
-        List<TrainingPlan> trainingPlans = trainingPlanDao.getAllByExecutor(executor);
+//        Subject subject = SecurityUtils.getSubject();
+//        User user = (User) subject.getPrincipal();
+//        Executor executor = user.getExecutor();
+        List<TrainingPlan> trainingPlans = trainingPlanDao.findAll();
         List<RegisterTable> registerTables = new ArrayList<>();
         for (TrainingPlan trainingPlan : trainingPlans) {
             registerTables.addAll(registerTableDao.getAllByTrainingPlan(trainingPlan));
@@ -81,6 +81,7 @@ public class RegisterTableService {
             SignInTable signInTable = new SignInTable();
             signInTable.setStudent(registerTable.getStudent());
             signInTable.setTrainingPlan(registerTable.getTrainingPlan());
+            signInTable.setPayment(false);
             signInTableDao.save(signInTable);
         }else {
             email.setMainBody("我们很遗憾的通知您，您对课程"+trainingPlan.getCourseName()+"的报名未成功，原因是"+registerTableRequest.getCause()+"，请您在满足条件后再进行报名，我们期待与您再次相见" );

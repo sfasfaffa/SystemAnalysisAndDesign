@@ -38,7 +38,7 @@ public class TrainingPlan {
     @OneToMany
     private List<RegisterTable> registerTableList;
 
-    @OneToMany
+    @OneToMany(mappedBy = "trainingPlan",cascade = {CascadeType.REMOVE})
     private List<SignInTable> signInTableList;
     @Column
     private Integer trainingNum;

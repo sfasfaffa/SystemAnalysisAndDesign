@@ -28,6 +28,7 @@ public class SignInTableService {
             signInTableResponse.setTrainingPlanId(signInTable.getTrainingPlan().getId());
             signInTableResponse.setTrainingPlanName(signInTable.getTrainingPlan().getCourseName());
             signInTableResponse.setId(signInTable.getId());
+            signInTableResponse.setPayment(signInTable.isPayment());
             signInTableResponses.add(signInTableResponse);
         }
         return ResultUtil.success(signInTableResponses);
@@ -35,6 +36,12 @@ public class SignInTableService {
     public Result modify(SignInTableRequest signInTableRequest){
         SignInTable signInTable = signInTableDao.getOne(signInTableRequest.getId());
         signInTable.setRegister(signInTableRequest.isRegister());
+        signInTableDao.save(signInTable);
+        return ResultUtil.success();
+    }
+    public Result modifyFee(SignInTableRequest signInTableRequest){
+        SignInTable signInTable = signInTableDao.getOne(signInTableRequest.getId());
+        signInTable.setPayment(signInTableRequest.isPayment());
         signInTableDao.save(signInTable);
         return ResultUtil.success();
     }

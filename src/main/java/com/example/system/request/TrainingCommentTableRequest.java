@@ -29,4 +29,8 @@ public class TrainingCommentTableRequest {
     private String suggestions;
 
     private Integer registerTable;
+
+    private String courseName;
+
+    private String stuName;
 }

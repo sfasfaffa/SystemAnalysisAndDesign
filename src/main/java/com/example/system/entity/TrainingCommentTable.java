@@ -21,11 +21,15 @@ public class TrainingCommentTable {
     @JoinColumn(name = "tra_com_sum_id")
     @ManyToOne
     private TrainingCommentSummary trainingCommentSummary;
-    @JoinColumn(name = "stu_id")
+    @JoinColumn(name = "reg_tab_id")
     @OneToOne
     private RegisterTable registerTable;
     @Column
     private Integer trainingSatisfaction;
     @Column
     private String suggestions;
+    @Column
+    private String stuName;
+    @Column
+    private String couName;
 }

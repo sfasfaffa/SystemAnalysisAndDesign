@@ -24,8 +24,10 @@ public class SignInTable {
     @ManyToOne
     private Student student;
     @JoinColumn(name = "tra_pla_id")
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.REMOVE})
     private TrainingPlan trainingPlan;
     @Column
     private boolean register;
+    @Column
+    private boolean payment;
 }
