@@ -13,21 +13,9 @@ import java.math.BigDecimal;
 @Builder
 public class TrainingCommentSummaryResponse {
     //private TrainingPlan trainingPlan;
-    private Integer trainingPlanId;
+    private String trainingPlanName;
 
-    private String companyName;
+    private String satisfactionSummary;
 
-    private String phone;
-
-    private String trainingContentHope;
-
-    private String trainingTimeHope;
-
-    private String trainingTarget;
-
-    private Integer participantNum;
-
-    private BigDecimal budget;
-
-    private String comment;
+    private String suggestionCollect;
 }

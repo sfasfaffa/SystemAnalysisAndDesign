@@ -17,4 +17,9 @@ public class TrainingCommentSummaryController {
     public Result create(@RequestBody TrainingCommentSummaryRequest trainingCommentSummaryRequest){
         return trainingCommentSummaryService.create(trainingCommentSummaryRequest);
     }
+
+    @PostMapping(value = "/get")
+    public Result get(){
+        return trainingCommentSummaryService.get();
+    }
 }
