@@ -89,4 +89,10 @@ public class RegisterTableService {
         registerTableDao.save(registerTable);
         return ResultUtil.success();
     }
+    public Result feePayment(RegisterTableRequest registerTableRequest){
+        RegisterTable registerTable = registerTableDao.getOne(registerTableRequest.getId());
+        registerTable.setFeePayment(registerTableRequest.isFeePayment());
+        registerTableDao.save(registerTable);
+        return ResultUtil.success();
+    }
 }

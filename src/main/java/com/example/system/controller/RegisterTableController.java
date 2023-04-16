@@ -23,4 +23,8 @@ public class RegisterTableController {
     public Result permit(@RequestBody RegisterTableRequest registerTableRequest){
         return registerTableService.permit(registerTableRequest);
     }
+    @PostMapping(value = "/fee/payment")
+    public Result feePayment(@RequestBody RegisterTableRequest registerTableRequest){
+        return registerTableService.feePayment(registerTableRequest);
+    }
 }
