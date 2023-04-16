@@ -23,4 +23,6 @@ public class TrainingCommentTableResponse {
     private Integer trainingSatisfaction;
 
     private String suggestions;
+
+    private String couName;
 }

@@ -30,6 +30,8 @@ public class TrainingCommentTableService {
         if(trainingCommentTableRequest.getRegisterTable()!=null){
             trainingCommentTable.setRegisterTable(registerTableDao.getOne(trainingCommentTableRequest.getRegisterTable()));
         }
+        trainingCommentTable.setCouName(trainingCommentTableRequest.getCourseName());
+        trainingCommentTable.setStuName(trainingCommentTableRequest.getStuName());
         trainingCommentTable.setSuggestions(trainingCommentTableRequest.getSuggestions());
         trainingCommentTable.setTrainingSatisfaction(trainingCommentTableRequest.getTrainingSatisfaction());
         trainingCommentTableDao.save(trainingCommentTable);
@@ -47,8 +49,10 @@ public class TrainingCommentTableService {
             TrainingCommentTableResponse trainingCommentTableResponse = new TrainingCommentTableResponse();
             trainingCommentTableResponse.setTrainingSatisfaction(trainingCommentTable.getTrainingSatisfaction());
             trainingCommentTableResponse.setSuggestions(trainingCommentTable.getSuggestions());
-            trainingCommentTableResponse.setTrainingPlanName(trainingCommentTable.getRegisterTable().getTrainingPlan().getCourseName());
-            trainingCommentTableResponse.setStuName(trainingCommentTable.getRegisterTable().getStudent().getName());
+            trainingCommentTableResponse.setStuName(trainingCommentTable.getStuName());
+            trainingCommentTableResponse.setCouName(trainingCommentTable.getCouName());
+            //trainingCommentTableResponse.setTrainingPlanName(trainingCommentTable.getRegisterTable().getTrainingPlan().getCourseName());
+            //trainingCommentTableResponse.setStuName(trainingCommentTable.getRegisterTable().getStudent().getName());
             trainingCommentTableResponses.add(trainingCommentTableResponse);
         }
         return ResultUtil.success(trainingCommentTableResponses);

@@ -17,7 +17,7 @@ public class Executor {
     private Integer id;
     @Column
     private String name;
-    @OneToMany
+    @OneToMany(mappedBy = "executor",cascade = {CascadeType.DETACH})
     private List<TrainingPlan> trainingPlan;
     @OneToOne
     private User user;

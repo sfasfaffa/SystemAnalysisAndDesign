@@ -1,6 +1,7 @@
 package com.example.system.controller;
 
 import com.example.system.model.Result;
+import com.example.system.request.RegisterTableRequest;
 import com.example.system.request.SignInTableRequest;
 import com.example.system.service.SignInTableService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class SignInTableController {
     @PostMapping("/modify")
     public Result modify(@RequestBody SignInTableRequest signInTableRequest){
         return signInTableService.modify(signInTableRequest);
+    }
+    @PostMapping(value = "/fee/payment")
+    public Result feePayment(@RequestBody SignInTableRequest signInTableRequest){
+        return signInTableService.modifyFee(signInTableRequest);
     }
 }

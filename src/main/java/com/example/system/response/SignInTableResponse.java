@@ -17,5 +17,6 @@ public class SignInTableResponse {
     private Integer trainingPlanId;
     private String trainingPlanName;
     private boolean register;
+    private boolean payment;
     private Integer id;
 }
