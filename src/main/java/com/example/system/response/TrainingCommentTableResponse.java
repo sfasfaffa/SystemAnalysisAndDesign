@@ -11,10 +11,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class TrainingCommentTableResponse {
     //private TrainingCommentSummary trainingCommentSummary;
-    private Integer trainingCommunitySummary;
+    private Integer trainingCommunitySummaryId;
 
     //private Student student;
     private Integer studentId;
+
+    private String stuName;
+
+    private String trainingPlanName;
 
     private Integer trainingSatisfaction;
 
