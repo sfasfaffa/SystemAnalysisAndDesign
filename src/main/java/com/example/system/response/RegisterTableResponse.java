@@ -11,10 +11,16 @@ import lombok.NoArgsConstructor;
 @Builder
 public class RegisterTableResponse {
     //private TrainingPlan trainingPlan;
-    private Integer trainingPlanId;
+    //private Integer trainingPlanId;
 
     //private Student student;
-    private  Integer TrainingPlanId;
+    //private  Integer TrainingPlanId;
+
+    private String studentName;
+
+    private String gender;
+
+    private String trainingPlanName;
 
     private String companyName;
 

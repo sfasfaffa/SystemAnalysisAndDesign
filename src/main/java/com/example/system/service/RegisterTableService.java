@@ -7,6 +7,7 @@ import com.example.system.dao.TrainingPlanDao;
 import com.example.system.entity.*;
 import com.example.system.model.Result;
 import com.example.system.request.RegisterTableRequest;
+import com.example.system.response.RegisterTableResponse;
 import com.example.system.util.ResultUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -49,7 +50,24 @@ public class RegisterTableService {
         for (TrainingPlan trainingPlan : trainingPlans) {
             registerTables.addAll(registerTableDao.getAllByTrainingPlan(trainingPlan));
         }
-        return ResultUtil.success(registerTables);
+        List<RegisterTableResponse> registerTableResponses = new ArrayList<>();
+        for (RegisterTable registerTable:registerTables){
+            //这里报名时没存学生id
+            RegisterTableResponse registerTableResponse = RegisterTableResponse
+                    .builder()
+                    .studentName(registerTable.getStudent().getName())
+                    .gender(registerTable.getStudent().getGender())
+                    .trainingPlanName(registerTable.getTrainingPlan().getCourseName())
+                    .companyName(registerTable.getCompanyName())
+                    .post(registerTable.getPost())
+                    .technicalLevel(registerTable.getTechnicalLevel())
+                    .phone(registerTable.getPhone())
+                    .registerSuccess(registerTable.isRegisterSuccess())
+                    .feePayment(registerTable.isFeePayment())
+                    .build();
+            registerTableResponses.add(registerTableResponse);
+        }
+        return ResultUtil.success(registerTableResponses);
     }
     public Result permit(RegisterTableRequest registerTableRequest){
         RegisterTable registerTable = registerTableDao.getOne(registerTableRequest.getId());
