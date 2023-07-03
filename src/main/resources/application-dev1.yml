@@ -13,9 +13,9 @@
 spring:
   datasource:
     username: root
-    password: Pdy309701..
+    password: lp309701
 
-    url: jdbc:mysql://39.106.249.239:3306/04_12?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useAffectedRows=true&allowMultiQueries=true
+    url: jdbc:mysql://127.0.0.1:3306/6_26?useUnicode=true&useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useAffectedRows=true&allowMultiQueries=true&allowPublicKeyRetrieval=true
   driver-class-name: com.mysql.cj.jdbc.Driver
 server:
   port: 8082

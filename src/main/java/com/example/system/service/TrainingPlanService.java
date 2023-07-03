@@ -98,7 +98,6 @@ public class TrainingPlanService {
         for(TrainingPlan trainingPlan:trainingPlanList){
             TrainingPlanResponse trainingPlanResponse = TrainingPlanResponse
                     .builder()
-                    .lecturerName(trainingPlan.getLecturer().getName())
                     .id(trainingPlan.getId())
                     .courseName(trainingPlan.getCourseName())
                     .skillStack(trainingPlan.getTrainingContent().getSkillStack())
@@ -113,6 +112,11 @@ public class TrainingPlanService {
                     .trainingPlace(trainingPlan.getTrainingPlace())
                     .executorName(trainingPlan.getExecutor().getName())
                     .build();
+            if (trainingPlan.getLecturer() != null){
+                trainingPlanResponse.setLecturerName(trainingPlan.getLecturer().getName());
+            }else {
+                trainingPlanResponse.setLecturerName(null);
+            }
             trainingPlanResponseList.add(trainingPlanResponse);
         }
         return new Result<>(ResultEnum.SUCCESS.getCode(), "获取全部培训计划成功",trainingPlanResponseList);
