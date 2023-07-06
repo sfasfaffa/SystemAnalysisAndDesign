@@ -5,18 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "email")
+@Entity(name = "ansAndEva")
 @Builder
 public class AnswerAndEvaluation {
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private Integer uid;
