@@ -1,10 +1,5 @@
 package com.example.system.controller;
 
-import com.example.system.dao.TrainingContentDao;
-import com.example.system.dao.TrainingFeeDao;
-import com.example.system.dao.TrainingPlanDao;
-import com.example.system.entity.TrainingContent;
-import com.example.system.entity.TrainingFee;
 import com.example.system.entity.TrainingPlan;
 import com.example.system.model.Result;
 import com.example.system.request.TrainingPlanRequest;

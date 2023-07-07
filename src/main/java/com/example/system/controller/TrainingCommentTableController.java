@@ -1,8 +1,6 @@
 package com.example.system.controller;
 
-import com.example.system.entity.TrainingCommentTable;
 import com.example.system.model.Result;
-import com.example.system.request.TrainingCommentSummaryRequest;
 import com.example.system.request.TrainingCommentTableRequest;
 import com.example.system.service.TrainingCommentTableService;
 import org.springframework.beans.factory.annotation.Autowired;

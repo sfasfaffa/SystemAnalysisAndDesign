@@ -24,4 +24,14 @@ public class AnswerAndEvaluation {
     private String answer;
     @Column
     private String evaluation;
+    @Column
+    private Integer s1;
+    @Column
+    private Integer s2;
+    @Column
+    private Integer s3;
+    @Column
+    private Integer s4;
+    @Column
+    private Integer s5;
 }

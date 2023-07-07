@@ -59,13 +59,17 @@ public class StudentController {
     }
     @PostMapping(value = "/store/my/answer")//存储我的问题及回答，评估
     public Result storeMy(@RequestParam("Id")Integer id,//用户id
-                          @RequestParam("question")String question,//问题
-                          @RequestParam("answer")String answer,//回答
-                          @RequestParam("evaluation")String evaluation){//对回答的评估
+                          @RequestParam("s1")Integer s1,
+                          @RequestParam("s2")Integer s2,
+                          @RequestParam("s3")Integer s3,
+                          @RequestParam("s4")Integer s4,
+                          @RequestParam("s5")Integer s5){
         AnswerAndEvaluation answerAndEvaluation = new AnswerAndEvaluation();
-        answerAndEvaluation.setAnswer(answer);
-        answerAndEvaluation.setEvaluation(evaluation);
-        answerAndEvaluation.setQuestion(question);
+        answerAndEvaluation.setS1(s1);
+        answerAndEvaluation.setS2(s2);
+        answerAndEvaluation.setS3(s3);
+        answerAndEvaluation.setS4(s4);
+        answerAndEvaluation.setS5(s5);
         answerAndEvaluation.setUid(id);
         aaeDao.save(answerAndEvaluation);
         return ResultUtil.success();
